@@ -98,6 +98,31 @@
     .bg-guide-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 30px; background: var(--red); color: white; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: 0.3s ease; box-shadow: 0 0 30px rgba(177,18,38,0.3); }
     .bg-guide-btn:hover { background: #d4162e; box-shadow: 0 0 50px rgba(177,18,38,0.6); transform: translateY(-2px); }
     .bg-guide-btn::before { content: "📄"; margin-right: 4px; }
+
+    /* ===== SCHEDULE ===== */
+    .schedule-list { max-width: 700px; display: flex; flex-direction: column; gap: 12px; }
+    .schedule-item {
+      display: flex; align-items: center; gap: 24px;
+      padding: 18px 24px;
+      background: linear-gradient(145deg, #0b0b0b, #111);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px; transition: 0.3s ease;
+    }
+    .schedule-item:hover { border-color: rgba(177,18,38,0.3); transform: translateX(6px); }
+    .schedule-item.highlight { border-left: 3px solid var(--red); }
+    .schedule-time { font-size: 0.85rem; font-weight: 700; color: var(--red); min-width: 170px; }
+    .schedule-event { color: white; font-size: 0.97rem; }
+
+    /* ===== REGISTER FORM ===== */
+    .form-wrapper { max-width: 800px; border-radius: 14px; overflow: hidden; box-shadow: 0 0 60px rgba(177,18,38,0.2); }
+    .register-btn {
+      display: inline-block; padding: 18px 48px;
+      background: var(--red); color: white;
+      border-radius: 12px; text-decoration: none;
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 0.5px;
+      transition: 0.3s ease; box-shadow: 0 0 40px rgba(177,18,38,0.4);
+    }
+    .register-btn:hover { background: #d4162e; box-shadow: 0 0 70px rgba(177,18,38,0.7); transform: translateY(-3px); }
   </style>
 </head>
 <body>
@@ -111,7 +136,8 @@
     <a onclick="showHome('about')">About</a>
     <a onclick="showHome('committees')">Committees</a>
     <a onclick="showHome('officers')">Officers</a>
-    <a onclick="showHome('join')">Join</a>
+    <a onclick="showHome('schedule')">Schedule</a>
+    <a onclick="showHome('register')" style="color:#b11226;font-weight:700;">Register</a>
   </div>
 </nav>
 
@@ -215,9 +241,32 @@
     </div>
   </section>
 
-  <section id="join">
-    <div class="section-title">Join Raven MUN</div>
-    <p style="color:var(--gray);max-width:700px;">Whether you're new or experienced, Raven MUN is where leaders are forged.</p>
+  <section id="schedule">
+    <div class="section-title">Conference Schedule</div>
+    <p style="color:var(--gray);margin-bottom:40px;">The schedule is subject to change.</p>
+    <div class="schedule-list">
+      <div class="schedule-item"><div class="schedule-time">7:30 – 8:30 AM</div><div class="schedule-event">Registration &amp; Advisor Check-In</div></div>
+      <div class="schedule-item"><div class="schedule-time">8:30 – 9:00 AM</div><div class="schedule-event">Opening Ceremonies</div></div>
+      <div class="schedule-item highlight"><div class="schedule-time">9:10 – 10:30 AM</div><div class="schedule-event">Committee Session I</div></div>
+      <div class="schedule-item"><div class="schedule-time">10:30 – 10:40 AM</div><div class="schedule-event">Break</div></div>
+      <div class="schedule-item highlight"><div class="schedule-time">10:40 AM – 12:15 PM</div><div class="schedule-event">Committee Session II</div></div>
+      <div class="schedule-item"><div class="schedule-time">12:15 – 1:00 PM</div><div class="schedule-event">Lunch</div></div>
+      <div class="schedule-item highlight"><div class="schedule-time">1:00 – 2:30 PM</div><div class="schedule-event">Committee Session III</div></div>
+      <div class="schedule-item"><div class="schedule-time">2:30 – 2:45 PM</div><div class="schedule-event">Break</div></div>
+      <div class="schedule-item highlight"><div class="schedule-time">2:45 – 3:45 PM</div><div class="schedule-event">Committee Session IV</div></div>
+      <div class="schedule-item"><div class="schedule-time">3:45 – 4:00 PM</div><div class="schedule-event">Committee Wrap-Up</div></div>
+      <div class="schedule-item"><div class="schedule-time">4:00 – 4:30 PM</div><div class="schedule-event">Chair &amp; Secretariat Deliberations</div></div>
+      <div class="schedule-item"><div class="schedule-time">4:00 – 4:30 PM</div><div class="schedule-event">Advisor Feedback Office Hours</div></div>
+      <div class="schedule-item"><div class="schedule-time">4:45 – 5:30 PM</div><div class="schedule-event">Closing Ceremonies</div></div>
+    </div>
+  </section>
+
+  <section id="register">
+    <div class="section-title">Register</div>
+    <p style="color:var(--gray);max-width:700px;margin-bottom:40px;">Ready to compete? Fill out the registration form below to secure your spot at Raven MUN.</p>
+    <div class="form-wrapper">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_6wlb0IZNbyTP842hf8L43fL2UsjA-hgroM4j95ovWCrhJw/viewform" target="_blank" class="register-btn">Register Now →</a>
+    </div>
   </section>
 
   <footer>© 2026 CCA Raven Model United Nations</footer>
