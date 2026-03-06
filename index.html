@@ -4,16 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CCA Raven Model United Nations</title>
+  <meta name="description" content="CCA Raven Model United Nations — hosted by Canyon Crest Academy. Officers: Brynn Lee, Kat Jensen, Misha Shnaider, Eila Ganel, Izzy Chen, Smaran Mukkavilli, Arman Kasnavi, Awa-Leah Caba, Asher Harron, Lucia Huang, Angelyne Pham." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
-    :root { --red: #b11226; --gray: #b5b5b5; }
+    :root {
+      --red: #b11226;
+      --dark: #050505;
+      --gray: #b5b5b5;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
     body { background: #000; color: white; overflow-x: hidden; }
 
+    /* BACKGROUND */
     #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2; }
     .raven-bg { position: fixed; inset: 0; background: url('raven-silhouette.png') center/600px no-repeat; opacity: 0.18; z-index: -1; animation: float 12s ease-in-out infinite; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
 
     /* NAV */
     nav {
@@ -23,28 +30,96 @@
       background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); z-index: 10;
     }
     nav .brand { font-weight: 800; letter-spacing: 1px; cursor: pointer; }
-    nav a { color: white; text-decoration: none; margin-left: 30px; position: relative; cursor: pointer; }
-    nav a::after { content: ""; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--red); transition: width 0.3s ease; }
-    nav a:hover::after { width: 100%; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      color: white; text-decoration: none; padding: 7px 14px;
+      border-radius: 6px; position: relative; cursor: pointer;
+      font-size: 0.9rem; transition: background 0.2s;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.07); }
+    .nav-links .nav-cta {
+      background: var(--red); font-weight: 700;
+      margin-left: 6px; padding: 8px 18px;
+    }
+    .nav-links .nav-cta:hover { background: #d4162e; }
 
     /* PAGES */
     .page { display: none; }
     .page.active { display: block; }
 
-    /* ===== HOME ===== */
-    .hero { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 10%; }
-    .logo { width: 260px; filter: drop-shadow(0 0 40px rgba(177,18,38,0.6)); animation: fadeZoom 2.2s ease forwards; }
-    @keyframes fadeZoom { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
-    .hero h1 { margin-top: 25px; font-size: clamp(2.4rem, 5vw, 3.6rem); opacity: 0; transform: translateY(30px); animation: reveal 1.2s ease forwards 1.6s; }
-    .hero p { max-width: 700px; color: var(--gray); margin-top: 12px; opacity: 0; transform: translateY(30px); animation: reveal 1.2s ease forwards 2s; }
-    @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+    /* ===== HERO ===== */
+    .hero {
+      height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 0 10%;
+    }
+    .logo {
+      width: 260px; opacity: 0;
+      filter: drop-shadow(0 0 40px rgba(177,18,38,0.6));
+      animation: fadeZoom 2.2s ease forwards;
+    }
+    @keyframes fadeZoom { from{opacity:0;transform:scale(0.6)} to{opacity:1;transform:scale(1)} }
+    .hero h1 {
+      margin-top: 25px; font-size: clamp(2.4rem, 5vw, 3.6rem);
+      opacity: 0; transform: translateY(30px);
+      animation: reveal 1.2s ease forwards 1.6s;
+    }
+    .hero p {
+      max-width: 700px; color: var(--gray); margin-top: 12px;
+      opacity: 0; transform: translateY(30px);
+      animation: reveal 1.2s ease forwards 2s;
+    }
+    .hero-btns {
+      display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; justify-content: center;
+      opacity: 0; animation: reveal 1.2s ease forwards 2.3s;
+    }
+    @keyframes reveal { to{opacity:1;transform:translateY(0)} }
 
+    .btn-red {
+      padding: 14px 36px; background: var(--red); color: white;
+      border-radius: 8px; font-weight: 700; font-size: 0.97rem;
+      cursor: pointer; transition: 0.3s ease;
+      box-shadow: 0 0 30px rgba(177,18,38,0.4); text-decoration: none;
+      display: inline-block;
+    }
+    .btn-red:hover { background: #d4162e; transform: translateY(-2px); box-shadow: 0 0 50px rgba(177,18,38,0.6); }
+    .btn-ghost {
+      padding: 14px 36px; background: transparent; color: white;
+      border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
+      font-weight: 600; font-size: 0.97rem; cursor: pointer; transition: 0.3s ease;
+    }
+    .btn-ghost:hover { border-color: white; background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+
+    /* SECTIONS */
     section { padding: 140px 10%; opacity: 0; transform: translateY(60px); transition: 1s ease; }
     section.show { opacity: 1; transform: translateY(0); }
-    .section-title { font-size: 2.3rem; margin-bottom: 30px; }
+    .section-title { font-size: 2.3rem; margin-bottom: 10px; }
+    .section-sub { color: var(--gray); max-width: 700px; line-height: 1.8; margin-bottom: 50px; }
 
+    /* ===== LETTER FROM PRESIDENT ===== */
+    .letter-box {
+      max-width: 800px;
+      background: linear-gradient(145deg, #0b0b0b, #111);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px; padding: 50px 56px;
+      position: relative; overflow: hidden;
+    }
+    .letter-box::before {
+      content: '"';
+      position: absolute; top: -20px; left: 30px;
+      font-size: 12rem; color: var(--red); opacity: 0.06;
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .letter-box p {
+      color: var(--gray); line-height: 1.9; font-size: 0.97rem;
+      margin-bottom: 16px; position: relative; z-index: 1;
+    }
+    .letter-sig { margin-top: 32px; }
+    .letter-sig strong { display: block; font-size: 1rem; color: white; margin-bottom: 2px; }
+    .letter-sig span { color: var(--red); font-size: 0.85rem; font-weight: 600; }
+
+    /* ===== COMMITTEES ===== */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-
     .committee-card {
       background: linear-gradient(145deg, #0b0b0b, #111);
       border-radius: 18px; border: 1px solid rgba(255,255,255,0.07);
@@ -57,23 +132,58 @@
     .card-type { font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
     .committee-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: white; }
     .committee-card p { color: var(--gray); font-size: 0.92rem; line-height: 1.6; flex: 1; margin-bottom: 22px; }
-    .learn-more-btn { display: inline-block; padding: 11px 24px; background: transparent; border: 1px solid var(--red); color: white; border-radius: 8px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s ease; text-align: center; }
+    .learn-more-btn { display: inline-block; padding: 11px 24px; background: transparent; border: 1px solid var(--red); color: white; border-radius: 8px; font-size: 0.88rem; font-weight: 600; transition: 0.3s ease; text-align: center; }
     .learn-more-btn:hover { background: var(--red); box-shadow: 0 0 20px rgba(177,18,38,0.5); }
 
+    /* ===== SCHEDULE ===== */
+    .schedule-list { max-width: 700px; }
+    .schedule-item {
+      display: flex; align-items: center; gap: 28px;
+      padding: 16px 24px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(145deg, #0b0b0b, #111);
+      margin-bottom: 10px; transition: 0.25s ease;
+    }
+    .schedule-item:hover { border-color: rgba(177,18,38,0.3); transform: translateX(5px); }
+    .schedule-item.session { border-left: 3px solid var(--red); }
+    .schedule-time { font-size: 0.82rem; font-weight: 700; color: var(--red); min-width: 185px; }
+    .schedule-event { color: #e0e0e0; font-size: 0.95rem; }
+    .schedule-note { color: var(--gray); font-size: 0.85rem; font-style: italic; margin-top: 16px; }
+
+    /* ===== OFFICERS ===== */
+    .officers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 24px; }
     .profile { text-align: center; }
-    .profile img { width: 140px; height: 140px; border-radius: 50%; margin-bottom: 15px; border: 3px solid var(--red); }
-    .profile h4 { margin-bottom: 6px; }
-    .profile span { color: var(--gray); font-size: 0.9rem; }
+    .profile img { width: 110px; height: 110px; border-radius: 50%; margin-bottom: 12px; border: 3px solid var(--red); object-fit: cover; }
+    .profile h4 { font-size: 0.92rem; margin-bottom: 4px; }
+    .profile span { color: var(--red); font-size: 0.78rem; font-weight: 600; }
 
-    footer { padding: 50px; text-align: center; color: #777; border-top: 1px solid rgba(255,255,255,0.05); }
+    /* ===== POSITION PAPERS ===== */
+    .paper-box {
+      max-width: 760px;
+      background: linear-gradient(145deg, #0b0b0b, #111);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px; padding: 44px 50px;
+    }
+    .paper-box h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; color: var(--red); }
+    .paper-box p { color: var(--gray); line-height: 1.85; font-size: 0.95rem; margin-bottom: 14px; }
+    .paper-box ul { color: var(--gray); padding-left: 22px; line-height: 2.1; font-size: 0.93rem; margin-bottom: 24px; }
+    .paper-box .deadline-badge {
+      display: inline-block; padding: 6px 16px;
+      background: rgba(177,18,38,0.15); border: 1px solid rgba(177,18,38,0.35);
+      border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+      color: var(--red); margin-bottom: 28px;
+    }
 
-    /* ===== COMMITTEE PAGE ===== */
+    /* ===== REGISTER ===== */
+    .register-section { text-align: center; }
+    .register-section .section-sub { margin: 0 auto 44px; }
+
+    /* ===== COMMITTEE DETAIL PAGE ===== */
     #page-committee { padding-top: 80px; }
-
     .committee-hero {
-      height: 400px; display: flex; flex-direction: column;
+      min-height: 380px; display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      text-align: center; padding: 0 10%;
+      text-align: center; padding: 60px 10%;
       position: relative; overflow: hidden;
     }
     .committee-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--red); border: 1px solid var(--red); padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; display: inline-block; }
@@ -81,48 +191,24 @@
     .committee-hero p { color: var(--gray); max-width: 600px; line-height: 1.7; font-size: 1.05rem; }
 
     .committee-content { max-width: 860px; margin: 0 auto; padding: 80px 40px 120px; }
-
     .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--gray); font-size: 0.9rem; margin-bottom: 40px; transition: color 0.2s; cursor: pointer; }
     .back-btn:hover { color: white; }
     .back-btn::before { content: "←"; font-size: 1.1rem; }
 
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 60px; }
-    .info-box { background: linear-gradient(145deg, #0b0b0b, #111); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 24px; text-align: center; }
-    .info-box .label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: 8px; }
-    .info-box .value { font-size: 1.1rem; font-weight: 600; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 56px; }
+    .info-box { background: linear-gradient(145deg, #0b0b0b, #111); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 22px; text-align: center; }
+    .info-box .label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: 6px; }
+    .info-box .value { font-size: 1rem; font-weight: 600; }
 
-    .section-block { margin-bottom: 60px; }
-    .section-block h2 { font-size: 1.5rem; font-weight: 800; color: var(--red); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(177,18,38,0.25); }
-    .section-block p { color: var(--gray); line-height: 1.85; font-size: 0.97rem; margin-bottom: 14px; }
+    .section-block { margin-bottom: 56px; }
+    .section-block h2 { font-size: 1.4rem; font-weight: 800; color: white; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(177,18,38,0.25); }
+    .section-block p { color: var(--gray); line-height: 1.85; font-size: 0.95rem; margin-bottom: 12px; }
 
-    .bg-guide-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 30px; background: var(--red); color: white; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: 0.3s ease; box-shadow: 0 0 30px rgba(177,18,38,0.3); }
+    .bg-guide-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: var(--red); color: white; border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 0.93rem; transition: 0.3s ease; box-shadow: 0 0 28px rgba(177,18,38,0.3); }
     .bg-guide-btn:hover { background: #d4162e; box-shadow: 0 0 50px rgba(177,18,38,0.6); transform: translateY(-2px); }
-    .bg-guide-btn::before { content: "📄"; margin-right: 4px; }
+    .bg-guide-btn::before { content: "📄"; margin-right: 2px; }
 
-    /* ===== SCHEDULE ===== */
-    .schedule-list { max-width: 700px; display: flex; flex-direction: column; gap: 12px; }
-    .schedule-item {
-      display: flex; align-items: center; gap: 24px;
-      padding: 18px 24px;
-      background: linear-gradient(145deg, #0b0b0b, #111);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px; transition: 0.3s ease;
-    }
-    .schedule-item:hover { border-color: rgba(177,18,38,0.3); transform: translateX(6px); }
-    .schedule-item.highlight { border-left: 3px solid var(--red); }
-    .schedule-time { font-size: 0.85rem; font-weight: 700; color: var(--red); min-width: 170px; }
-    .schedule-event { color: white; font-size: 0.97rem; }
-
-    /* ===== REGISTER FORM ===== */
-    .form-wrapper { max-width: 800px; border-radius: 14px; overflow: hidden; box-shadow: 0 0 60px rgba(177,18,38,0.2); }
-    .register-btn {
-      display: inline-block; padding: 18px 48px;
-      background: var(--red); color: white;
-      border-radius: 12px; text-decoration: none;
-      font-size: 1.1rem; font-weight: 800; letter-spacing: 0.5px;
-      transition: 0.3s ease; box-shadow: 0 0 40px rgba(177,18,38,0.4);
-    }
-    .register-btn:hover { background: #d4162e; box-shadow: 0 0 70px rgba(177,18,38,0.7); transform: translateY(-3px); }
+    footer { padding: 50px; text-align: center; color: #777; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.88rem; }
   </style>
 </head>
 <body>
@@ -132,35 +218,52 @@
 
 <nav>
   <div class="brand" onclick="showHome()">CCA RAVEN MUN</div>
-  <div>
+  <div class="nav-links">
     <a onclick="showHome('about')">About</a>
     <a onclick="showHome('committees')">Committees</a>
-    <a onclick="showHome('officers')">Officers</a>
     <a onclick="showHome('schedule')">Schedule</a>
-    <a onclick="showHome('register')" style="color:#b11226;font-weight:700;">Register</a>
+    <a onclick="showHome('officers')">Officers</a>
+    <a onclick="showHome('position-papers')">Position Papers</a>
+    <a onclick="showHome('register')" class="nav-cta">Register</a>
   </div>
 </nav>
 
-<!-- ==================== HOME ==================== -->
+<!-- ==================== HOME PAGE ==================== -->
 <div id="page-home" class="page active">
 
+  <!-- HERO -->
   <div class="hero">
-    <img src="https://scontent-lax7-1.cdninstagram.com/v/t51.2885-19/373209889_707139351305017_9180251172803534499_n.jpg" class="logo" alt="CCA Raven MUN Logo" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';" />
+    <img src="https://scontent-lax7-1.cdninstagram.com/v/t51.2885-19/373209889_707139351305017_9180251172803534499_n.jpg"
+      class="logo" alt="CCA Raven MUN Logo"
+      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';" />
     <div id="logo-fallback" style="display:none;font-size:3rem;font-weight:800;letter-spacing:3px;color:#b11226;">CCA RAVEN MUN</div>
     <h1>CCA Raven Model United Nations</h1>
     <p>Elite diplomacy. Strategic debate. Global leadership.</p>
+    <div class="hero-btns">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_6wlb0IZNbyTP842hf8L43fL2UsjA-hgroM4j95ovWCrhJw/viewform" target="_blank" class="btn-red">Register Now</a>
+      <div class="btn-ghost" onclick="showHome('committees')">View Committees</div>
+    </div>
   </div>
 
+  <!-- ABOUT / LETTER FROM PRESIDENT -->
   <section id="about">
-    <div class="section-title">About Raven MUN</div>
-    <p style="max-width:800px;color:var(--gray);line-height:1.8;">
-      Raven MUN is a competitive Model United Nations organization dedicated to excellence in diplomacy, public speaking, and global affairs.
-    </p>
+    <div class="section-title">A Message from the President</div>
+    <p class="section-sub">A warm welcome from Raven MUN's leadership.</p>
+    <div class="letter-box">
+      <p>&lt;letter&gt;</p>
+      <div class="letter-sig">
+        <strong>Brynn Lee</strong>
+        <span>President, CCA Raven Model United Nations</span>
+      </div>
+    </div>
   </section>
 
+  <!-- COMMITTEES -->
   <section id="committees">
     <div class="section-title">Committees</div>
+    <p class="section-sub">Three distinct committees spanning global economics, international security, and high-stakes crisis simulation. Click any committee to learn more.</p>
     <div class="cards">
+
       <div class="committee-card" onclick="showCommittee('ecosoc')">
         <div class="card-img-placeholder">🌍</div>
         <div class="card-body">
@@ -170,15 +273,17 @@
           <div class="learn-more-btn">Learn More</div>
         </div>
       </div>
+
       <div class="committee-card" onclick="showCommittee('disec')">
         <div class="card-img-placeholder">⚔️</div>
         <div class="card-body">
           <div class="card-type">Specialized Committee</div>
           <h3>DISEC</h3>
-          <p>Private Military Companies — Examining the rise of private military contractors and their implications for international law and security.</p>
+          <p>Private Military Companies — Examining the rise of private military contractors and their implications for international law.</p>
           <div class="learn-more-btn">Learn More</div>
         </div>
       </div>
+
       <div class="committee-card" onclick="showCommittee('spec-crisis')">
         <div class="card-img-placeholder">🕵️</div>
         <div class="card-body">
@@ -188,91 +293,85 @@
           <div class="learn-more-btn">Learn More</div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <section id="officers">
-    <div class="section-title">Officer Team</div>
-    <div class="cards">
-      <div class="profile">
-        <img src="officer1.jpg" onerror="this.src='https://ui-avatars.com/api/?name=BL&background=b11226&color=fff&size=140'" />
-        <h4>Brynn Lee</h4><span>President</span>
-      </div>
-      <div class="profile">
-        <img src="officer2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=KJ&background=b11226&color=fff&size=140'" />
-        <h4>Kat Jensen</h4><span>Vice President</span>
-      </div>
-      <div class="profile">
-        <img src="officer3.jpg" onerror="this.src='https://ui-avatars.com/api/?name=MS&background=b11226&color=fff&size=140'" />
-        <h4>Misha Shnaider</h4><span>Treasurer</span>
-      </div>
-      <div class="profile">
-        <img src="officer4.jpg" onerror="this.src='https://ui-avatars.com/api/?name=EG&background=b11226&color=fff&size=140'" />
-        <h4>Eila Ganel</h4><span>Secretary</span>
-      </div>
-      <div class="profile">
-        <img src="officer5.jpg" onerror="this.src='https://ui-avatars.com/api/?name=IC&background=b11226&color=fff&size=140'" />
-        <h4>Izzy Chen</h4><span>Publicity Officer</span>
-      </div>
-      <div class="profile">
-        <img src="officer6.jpg" onerror="this.src='https://ui-avatars.com/api/?name=SM&background=b11226&color=fff&size=140'" />
-        <h4>Smaran Mukkavilli</h4><span>Director of Technology</span>
-      </div>
-      <div class="profile">
-        <img src="officer7.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AK&background=b11226&color=fff&size=140'" />
-        <h4>Arman Kasnavi</h4><span>Director of Enrichment</span>
-      </div>
-      <div class="profile">
-        <img src="officer8.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AC&background=b11226&color=fff&size=140'" />
-        <h4>Awa-Leah Caba</h4><span>Director of Enrichment</span>
-      </div>
-      <div class="profile">
-        <img src="officer9.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AH&background=b11226&color=fff&size=140'" />
-        <h4>Asher Harron</h4><span>Director of Membership</span>
-      </div>
-      <div class="profile">
-        <img src="officer10.jpg" onerror="this.src='https://ui-avatars.com/api/?name=LH&background=b11226&color=fff&size=140'" />
-        <h4>Lucia Huang</h4><span>Director of Outreach</span>
-      </div>
-      <div class="profile">
-        <img src="officer11.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AP&background=b11226&color=fff&size=140'" />
-        <h4>Angelyne Pham</h4><span>Director of Outreach</span>
-      </div>
-    </div>
-  </section>
-
+  <!-- SCHEDULE -->
   <section id="schedule">
     <div class="section-title">Conference Schedule</div>
-    <p style="color:var(--gray);margin-bottom:40px;">The schedule is subject to change.</p>
+    <p class="section-sub">A full day of diplomacy, debate, and deliberation.</p>
     <div class="schedule-list">
       <div class="schedule-item"><div class="schedule-time">7:30 – 8:30 AM</div><div class="schedule-event">Registration &amp; Advisor Check-In</div></div>
       <div class="schedule-item"><div class="schedule-time">8:30 – 9:00 AM</div><div class="schedule-event">Opening Ceremonies</div></div>
-      <div class="schedule-item highlight"><div class="schedule-time">9:10 – 10:30 AM</div><div class="schedule-event">Committee Session I</div></div>
+      <div class="schedule-item session"><div class="schedule-time">9:10 – 10:30 AM</div><div class="schedule-event">Committee Session I</div></div>
       <div class="schedule-item"><div class="schedule-time">10:30 – 10:40 AM</div><div class="schedule-event">Break</div></div>
-      <div class="schedule-item highlight"><div class="schedule-time">10:40 AM – 12:15 PM</div><div class="schedule-event">Committee Session II</div></div>
+      <div class="schedule-item session"><div class="schedule-time">10:40 AM – 12:15 PM</div><div class="schedule-event">Committee Session II</div></div>
       <div class="schedule-item"><div class="schedule-time">12:15 – 1:00 PM</div><div class="schedule-event">Lunch</div></div>
-      <div class="schedule-item highlight"><div class="schedule-time">1:00 – 2:30 PM</div><div class="schedule-event">Committee Session III</div></div>
+      <div class="schedule-item session"><div class="schedule-time">1:00 – 2:30 PM</div><div class="schedule-event">Committee Session III</div></div>
       <div class="schedule-item"><div class="schedule-time">2:30 – 2:45 PM</div><div class="schedule-event">Break</div></div>
-      <div class="schedule-item highlight"><div class="schedule-time">2:45 – 3:45 PM</div><div class="schedule-event">Committee Session IV</div></div>
+      <div class="schedule-item session"><div class="schedule-time">2:45 – 3:45 PM</div><div class="schedule-event">Committee Session IV</div></div>
       <div class="schedule-item"><div class="schedule-time">3:45 – 4:00 PM</div><div class="schedule-event">Committee Wrap-Up</div></div>
       <div class="schedule-item"><div class="schedule-time">4:00 – 4:30 PM</div><div class="schedule-event">Chair &amp; Secretariat Deliberations</div></div>
       <div class="schedule-item"><div class="schedule-time">4:00 – 4:30 PM</div><div class="schedule-event">Advisor Feedback Office Hours</div></div>
       <div class="schedule-item"><div class="schedule-time">4:45 – 5:30 PM</div><div class="schedule-event">Closing Ceremonies</div></div>
+      <p class="schedule-note">* Schedule is subject to change.</p>
     </div>
   </section>
 
-  <section id="register">
-    <div class="section-title">Register</div>
-    <p style="color:var(--gray);max-width:700px;margin-bottom:40px;">Ready to compete? Fill out the registration form below to secure your spot at Raven MUN.</p>
-    <div class="form-wrapper">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_6wlb0IZNbyTP842hf8L43fL2UsjA-hgroM4j95ovWCrhJw/viewform" target="_blank" class="register-btn">Register Now →</a>
+  <!-- POSITION PAPERS -->
+  <section id="position-papers">
+    <div class="section-title">Position Papers</div>
+    <p class="section-sub">A position paper is your opportunity to demonstrate your research and articulate your country's stance before the conference begins.</p>
+    <div class="paper-box">
+      <div class="deadline-badge">📅 Deadline — TBA</div>
+      <h3>What to Include</h3>
+      <p>Your position paper should be 1–2 pages per committee topic and clearly cover the following:</p>
+      <ul>
+        <li>Your country's general stance on the topic</li>
+        <li>Relevant background and history from your country's perspective</li>
+        <li>Previous UN actions and your country's response</li>
+        <li>Proposed solutions and policy recommendations</li>
+      </ul>
+      <h3>Submission</h3>
+      <p>Submit your position paper using the form below. Make sure to include your school name, committee, and country assignment.</p>
+      <div style="margin-top: 28px;">
+        <a href="#" target="_blank" class="btn-red">Submit Position Paper →</a>
+      </div>
     </div>
   </section>
 
-  <footer>© 2026 CCA Raven Model United Nations</footer>
-</div>
+  <!-- REGISTER -->
+  <section id="register" class="register-section">
+    <div class="section-title">Register for Raven MUN</div>
+    <p class="section-sub">Ready to compete? Secure your delegation's spot at Raven MUN by filling out the registration form.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_6wlb0IZNbyTP842hf8L43fL2UsjA-hgroM4j95ovWCrhJw/viewform" target="_blank" class="btn-red" style="font-size:1.05rem;padding:16px 48px;">Register Now →</a>
+  </section>
 
-<!-- ==================== COMMITTEE PAGE ==================== -->
+  <!-- OFFICERS -->
+  <section id="officers">
+    <div class="section-title">Officer Team</div>
+    <p class="section-sub">Meet the team behind Raven MUN.</p>
+    <div class="officers-grid">
+      <div class="profile"><img src="officer1.jpg" onerror="this.src='https://ui-avatars.com/api/?name=BL&background=b11226&color=fff&size=110'"><h4>Brynn Lee</h4><span>President</span></div>
+      <div class="profile"><img src="officer2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=KJ&background=b11226&color=fff&size=110'"><h4>Kat Jensen</h4><span>Vice President</span></div>
+      <div class="profile"><img src="officer3.jpg" onerror="this.src='https://ui-avatars.com/api/?name=MS&background=b11226&color=fff&size=110'"><h4>Misha Shnaider</h4><span>Treasurer</span></div>
+      <div class="profile"><img src="officer4.jpg" onerror="this.src='https://ui-avatars.com/api/?name=EG&background=b11226&color=fff&size=110'"><h4>Eila Ganel</h4><span>Secretary</span></div>
+      <div class="profile"><img src="officer5.jpg" onerror="this.src='https://ui-avatars.com/api/?name=IC&background=b11226&color=fff&size=110'"><h4>Izzy Chen</h4><span>Publicity Officer</span></div>
+      <div class="profile"><img src="officer6.jpg" onerror="this.src='https://ui-avatars.com/api/?name=SM&background=b11226&color=fff&size=110'"><h4>Smaran Mukkavilli</h4><span>Dir. of Technology</span></div>
+      <div class="profile"><img src="officer7.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AK&background=b11226&color=fff&size=110'"><h4>Arman Kasnavi</h4><span>Dir. of Enrichment</span></div>
+      <div class="profile"><img src="officer8.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AC&background=b11226&color=fff&size=110'"><h4>Awa-Leah Caba</h4><span>Dir. of Enrichment</span></div>
+      <div class="profile"><img src="officer9.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AH&background=b11226&color=fff&size=110'"><h4>Asher Harron</h4><span>Dir. of Membership</span></div>
+      <div class="profile"><img src="officer10.jpg" onerror="this.src='https://ui-avatars.com/api/?name=LH&background=b11226&color=fff&size=110'"><h4>Lucia Huang</h4><span>Dir. of Outreach</span></div>
+      <div class="profile"><img src="officer11.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AP&background=b11226&color=fff&size=110'"><h4>Angelyne Pham</h4><span>Dir. of Outreach</span></div>
+    </div>
+  </section>
+
+  <footer>© 2026 CCA Raven Model United Nations · Canyon Crest Academy · San Diego, CA</footer>
+
+</div><!-- end page-home -->
+
+<!-- ==================== COMMITTEE DETAIL PAGE ==================== -->
 <div id="page-committee" class="page">
   <div class="committee-hero" id="committee-hero">
     <span class="committee-tag" id="committee-tag"></span>
@@ -282,7 +381,7 @@
   <div class="committee-content">
     <div class="back-btn" onclick="showHome('committees')">Back to Committees</div>
     <div class="info-grid">
-      <div class="info-box"><div class="label">Committee Type</div><div class="value" id="info-type"></div></div>
+      <div class="info-box"><div class="label">Type</div><div class="value" id="info-type"></div></div>
       <div class="info-box"><div class="label">Topic</div><div class="value" id="info-topic"></div></div>
       <div class="info-box"><div class="label">Skill Level</div><div class="value" id="info-skill"></div></div>
       <div class="info-box"><div class="label">Background Guide</div><div class="value" id="info-guide-status"></div></div>
@@ -292,7 +391,7 @@
     <div class="section-block"><h2>Key Questions to Consider</h2><div id="committee-questions"></div></div>
     <div class="section-block">
       <h2>Background Guide</h2>
-      <p style="color:var(--gray);margin-bottom:20px;">The background guide will be released closer to the conference. Check back here or follow us on social media for updates.</p>
+      <p style="margin-bottom:20px;">The background guide will be released closer to the conference. Check back here or follow us on social media for updates.</p>
       <a id="bg-guide-link" href="#" class="bg-guide-btn">Download Background Guide</a>
     </div>
   </div>
@@ -316,7 +415,7 @@ const committees = {
     heroBg: 'linear-gradient(135deg, #050010 0%, #100520 50%, #050010 100%)',
     type: 'Specialized Committee', topic: 'Private Military Companies', skill: 'Intermediate', guideStatus: 'Coming Soon', guideLink: '#',
     overview: '<p>The Disarmament and International Security Committee (DISEC) is the First Committee of the UN General Assembly and deals with disarmament, global challenges, and threats to peace. At Raven MUN, DISEC will focus on one of the most controversial issues in modern warfare: the proliferation of Private Military Companies (PMCs).</p><p>Delegates will debate international regulations, accountability frameworks, and the implications of outsourcing military force to private actors operating outside traditional chains of command.</p>',
-    background: '<p>Private Military Companies — sometimes called mercenary firms — have operated in conflict zones across Africa, the Middle East, and Eastern Europe. Groups like Wagner Group have drawn international attention for alleged war crimes and destabilizing influence in fragile states.</p><p>Unlike state militaries, PMCs often operate in legal gray areas: they are accountable to private contracts, not international humanitarian law, and rarely face consequences for violations. This committee will examine how the UN can address this growing threat to global security and human rights.</p>',
+    background: '<p>Private Military Companies — sometimes called mercenary firms — have operated in conflict zones across Africa, the Middle East, and Eastern Europe. Groups like Wagner Group have drawn international attention for alleged war crimes and destabilizing influence in fragile states.</p><p>Unlike state militaries, PMCs often operate in legal gray areas: accountable to private contracts, not international humanitarian law, and rarely face consequences for violations.</p>',
     questions: '<p>• Should the UN adopt a binding treaty to regulate or ban private military contractors?</p><p>• How can states be held accountable when PMCs they hire commit human rights violations?</p><p>• What distinguishes a legitimate security contractor from an illegal mercenary under international law?</p><p>• How do PMCs affect sovereignty and stability in the nations where they operate?</p>'
   },
   'spec-crisis': {
@@ -325,7 +424,7 @@ const committees = {
     heroBg: 'linear-gradient(135deg, #000a00 0%, #051005 50%, #000a00 100%)',
     type: 'Crisis Committee', topic: 'The Cold War', skill: 'Intermediate – Advanced', guideStatus: 'Coming Soon', guideLink: '#',
     overview: '<p>The Specialized Crisis Committee is Raven MUN\'s most dynamic and fast-paced committee format. Unlike traditional General Assemblies, crisis committees respond to rapidly evolving in-committee crises, requiring delegates to think on their feet and craft immediate policy directives.</p><p>This year\'s crisis scenario plunges delegates into the height of the Cold War — a period of ideological conflict, proxy wars, nuclear brinkmanship, and espionage that shaped the entire second half of the 20th century.</p>',
-    background: '<p>The Cold War (1947–1991) was a global struggle for dominance between the United States and the Soviet Union — two superpowers with opposing ideologies, both armed with nuclear weapons. Rather than direct confrontation, the conflict played out through proxy wars, intelligence operations, arms races, and the threat of mutually assured destruction.</p><p>Delegates will be assigned roles within a Cold War-era body navigating pivotal moments: Soviet expansionism, CIA covert operations, the space race, and the ever-present shadow of nuclear annihilation. Every directive matters. Every miscalculation could end the world.</p>',
+    background: '<p>The Cold War (1947–1991) was a global struggle for dominance between the United States and the Soviet Union — two superpowers with opposing ideologies, both armed with nuclear weapons. Rather than direct confrontation, the conflict played out through proxy wars, intelligence operations, arms races, and the threat of mutually assured destruction.</p><p>Delegates will navigate pivotal moments: Soviet expansionism, CIA covert operations, the space race, and the ever-present shadow of nuclear annihilation.</p>',
     questions: '<p>• How do you balance ideological conviction with pragmatic diplomacy when nuclear weapons are on the table?</p><p>• What covert operations are justified in the name of national security?</p><p>• How should world powers respond to Soviet or American expansion into neutral territories?</p><p>• At what point does deterrence become provocation — and how do you pull back from the brink?</p>'
   }
 };
@@ -339,7 +438,7 @@ function showHome(sectionId) {
     setTimeout(() => {
       const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 50);
+    }, 60);
   }
 }
 
@@ -364,20 +463,19 @@ function showCommittee(id) {
   window.location.hash = id;
 }
 
-// Handle direct URL hash on load
 window.addEventListener('load', () => {
   const hash = window.location.hash.replace('#', '');
   if (committees[hash]) showCommittee(hash);
 });
 
 particlesJS('particles-js', {
-  particles: { number: { value: 70 }, color: { value: '#b11226' }, size: { value: 2 }, opacity: { value: 0.5 }, line_linked: { enable: false }, move: { speed: 0.6 } }
+  particles: { number:{value:70}, color:{value:'#b11226'}, size:{value:2}, opacity:{value:0.5}, line_linked:{enable:false}, move:{speed:0.6} }
 });
 
 const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
 sections.forEach(s => observer.observe(s));
 </script>
 </body>
