@@ -392,7 +392,7 @@
     <div class="section-block">
       <h2>Background Guide</h2>
       <p style="margin-bottom:20px;">The background guide will be released closer to the conference. Check back here or follow us on social media for updates.</p>
-      <a id="bg-guide-link" href="#" class="bg-guide-btn">Download Background Guide</a>
+      <a id="bg-guide-link" href="#" target="_blank" class="bg-guide-btn">Download Background Guide</a>
     </div>
   </div>
   <footer>© 2026 CCA Raven Model United Nations</footer>
@@ -456,7 +456,13 @@ function showCommittee(id) {
   document.getElementById('committee-overview').innerHTML = c.overview;
   document.getElementById('committee-background').innerHTML = c.background;
   document.getElementById('committee-questions').innerHTML = c.questions;
-  document.getElementById('bg-guide-link').href = c.guideLink;
+  const guideLink = document.getElementById('bg-guide-link');
+  guideLink.href = c.guideLink;
+  if (c.guideLink === '#') {
+    guideLink.onclick = (e) => e.preventDefault();
+  } else {
+    guideLink.onclick = null;
+  }
   document.getElementById('page-home').classList.remove('active');
   document.getElementById('page-committee').classList.add('active');
   window.scrollTo({ top: 0 });
