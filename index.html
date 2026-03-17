@@ -318,7 +318,7 @@
     <div class="cards">
 
       <div class="committee-card" onclick="showCommittee('ecosoc')">
-        <div class="card-img-placeholder">🌍</div>
+        <img src="images/ecosoc cover.jpg" class="card-img" alt="ECOSOC">
         <div class="card-body">
           <div class="card-type">General Assembly</div>
           <h3>ECOSOC</h3>
@@ -327,6 +327,20 @@
         </div>
       </div>
 
+      <style>
+      .card-img-placeholder {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.ecosoc-img {
+  background-image: url("images/ecosoc.jpg");
+}
+</style>
+        
       <div class="committee-card" onclick="showCommittee('disec')">
         <div class="card-img-placeholder">⚔️</div>
         <div class="card-body">
