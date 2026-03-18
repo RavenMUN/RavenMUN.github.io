@@ -8,14 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
-    :root {
-      --red: #b11226;
-      --dark: #050505;
-      --gray: #b5b5b5;
-    }
+:root {
+  --red: #b11226;
+  --dark: #ffffff;
+  --gray: #555555;
+}
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: #000; color: white; overflow-x: hidden; }
+    body { background: #f7f7f7; color: #111; overflow-x: hidden; }
     html {
   scroll-behavior: smooth;
 }
@@ -26,7 +26,7 @@
 
 /* Button */
 .dropbtn {
-  color: white;
+  color: #111;
   padding: 7px 14px;
   border-radius: 6px;
   cursor: pointer;
@@ -52,7 +52,7 @@
 .dropdown-content a {
   display: block;          
   padding: 10px 16px;
-  color: white;
+  color: #111;
   text-decoration: none;
 }
 
@@ -76,12 +76,12 @@
       position: fixed; top: 0; width: 100%;
       display: flex; justify-content: space-between; align-items: center;
       padding: 22px 60px;
-      background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); z-index: 10;
+      background: rgba(255,255,255,255.85); backdrop-filter: blur(12px); z-index: 10;
     }
     nav .brand { font-weight: 800; letter-spacing: 1px; cursor: pointer; }
     .nav-links { display: flex; align-items: center; gap: 4px; }
     .nav-links a {
-      color: white; text-decoration: none; padding: 7px 14px;
+      color: #111; text-decoration: none; padding: 7px 14px;
       border-radius: 6px; position: relative; cursor: pointer;
       font-size: 0.9rem; transition: background 0.2s;
     }
@@ -125,7 +125,7 @@
     @keyframes reveal { to{opacity:1;transform:translateY(0)} }
 
     .btn-red {
-      padding: 14px 36px; background: var(--red); color: white;
+      padding: 14px 36px; background: var(--red); color: #111;
       border-radius: 8px; font-weight: 700; font-size: 0.97rem;
       cursor: pointer; transition: 0.3s ease;
       box-shadow: 0 0 30px rgba(177,18,38,0.4); text-decoration: none;
@@ -133,11 +133,11 @@
     }
     .btn-red:hover { background: #d4162e; transform: translateY(-2px); box-shadow: 0 0 50px rgba(177,18,38,0.6); }
     .btn-ghost {
-      padding: 14px 36px; background: transparent; color: white;
+      padding: 14px 36px; background: transparent; color: #111;
       border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
       font-weight: 600; font-size: 0.97rem; cursor: pointer; transition: 0.3s ease;
     }
-    .btn-ghost:hover { border-color: white; background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+    .btn-ghost:hover { border-color: #111; background: rgba(255,255,255,0.05); transform: translateY(-2px); }
 
     /* SECTIONS */
 section {
@@ -153,8 +153,8 @@ section {
     /* ===== LETTER FROM PRESIDENT ===== */
     .letter-box {
       max-width: 800px;
-      background: linear-gradient(145deg, #0b0b0b, #111);
-      border: 1px solid rgba(255,255,255,0.07);
+background: #ffffff;
+border: 1px solid rgba(255,255,255,0.08);
       border-radius: 18px; padding: 50px 56px;
       position: relative; overflow: hidden;
     }
@@ -169,14 +169,14 @@ section {
       margin-bottom: 16px; position: relative; z-index: 1;
     }
     .letter-sig { margin-top: 32px; }
-    .letter-sig strong { display: block; font-size: 1rem; color: white; margin-bottom: 2px; }
+    .letter-sig strong { display: block; font-size: 1rem; color: #111; margin-bottom: 2px; }
     .letter-sig span { color: var(--red); font-size: 0.85rem; font-weight: 600; }
 
     /* ===== COMMITTEES ===== */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .committee-card {
-      background: linear-gradient(145deg, #0b0b0b, #111);
-      border-radius: 18px; border: 1px solid rgba(255,255,255,0.07);
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,0.08);
       overflow: hidden; transition: 0.4s ease;
       display: flex; flex-direction: column; cursor: pointer;
     }
@@ -184,9 +184,9 @@ section {
     .card-img-placeholder { width: 100%; height: 180px; background: linear-gradient(135deg, #1a0508, #2d0a10); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
     .card-body { padding: 28px 30px 30px; display: flex; flex-direction: column; flex: 1; }
     .card-type { font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
-    .committee-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: white; }
+    .committee-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: #111; }
     .committee-card p { color: var(--gray); font-size: 0.92rem; line-height: 1.6; flex: 1; margin-bottom: 22px; }
-    .learn-more-btn { display: inline-block; padding: 11px 24px; background: transparent; border: 1px solid var(--red); color: white; border-radius: 8px; font-size: 0.88rem; font-weight: 600; transition: 0.3s ease; text-align: center; }
+    .learn-more-btn { display: inline-block; padding: 11px 24px; background: transparent; border: 1px solid var(--red); color: #111; border-radius: 8px; font-size: 0.88rem; font-weight: 600; transition: 0.3s ease; text-align: center; }
     .learn-more-btn:hover { background: var(--red); box-shadow: 0 0 20px rgba(177,18,38,0.5); }
 
     /* ===== SCHEDULE ===== */
@@ -195,7 +195,7 @@ section {
       display: flex; align-items: center; gap: 28px;
       padding: 16px 24px; border-radius: 10px;
       border: 1px solid rgba(255,255,255,0.06);
-      background: linear-gradient(145deg, #0b0b0b, #111);
+      background: #ffffff;
       margin-bottom: 10px; transition: 0.25s ease;
     }
     .schedule-item:hover { border-color: rgba(177,18,38,0.3); transform: translateX(5px); }
@@ -211,7 +211,7 @@ section {
   gap: 24px;}
 
 .profile {
-  background: linear-gradient(145deg, #0b0b0b, #111);
+  background: #ffffff;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 10px;
   padding: 22px 26px;
@@ -229,7 +229,7 @@ section {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 6px;
-  color: white;}
+  color: #111;}
 
 .profile span {
   font-size: 0.85rem;
@@ -239,8 +239,8 @@ section {
     /* ===== POSITION PAPERS ===== */
     .paper-box {
       max-width: 760px;
-      background: linear-gradient(145deg, #0b0b0b, #111);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 18px; padding: 44px 50px;
     }
     .paper-box h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; color: var(--red); }
@@ -271,19 +271,19 @@ section {
 
     .committee-content { max-width: 860px; margin: 0 auto; padding: 80px 40px 120px; }
     .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--gray); font-size: 0.9rem; margin-bottom: 40px; transition: color 0.2s; cursor: pointer; }
-    .back-btn:hover { color: white; }
+    .back-btn:hover { color: #111; }
     .back-btn::before { content: "←"; font-size: 1.1rem; }
 
     .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 56px; }
-    .info-box { background: linear-gradient(145deg, #0b0b0b, #111); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 22px; text-align: center; }
+    .info-box { background: #ffffff; border: 1px solid rgba(255,255,255,0.08);; border-radius: 14px; padding: 22px; text-align: center; }
     .info-box .label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: 6px; }
     .info-box .value { font-size: 1rem; font-weight: 600; }
 
     .section-block { margin-bottom: 56px; }
-    .section-block h2 { font-size: 1.4rem; font-weight: 800; color: white; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(177,18,38,0.25); }
+    .section-block h2 { font-size: 1.4rem; font-weight: 800; color: #111; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(177,18,38,0.25); }
     .section-block p { color: var(--gray); line-height: 1.85; font-size: 0.95rem; margin-bottom: 12px; }
 
-    .bg-guide-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: var(--red); color: white; border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 0.93rem; transition: 0.3s ease; box-shadow: 0 0 28px rgba(177,18,38,0.3); }
+    .bg-guide-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; background: var(--red); color: #111; border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 0.93rem; transition: 0.3s ease; box-shadow: 0 0 28px rgba(177,18,38,0.3); }
     .bg-guide-btn:hover { background: #d4162e; box-shadow: 0 0 50px rgba(177,18,38,0.6); transform: translateY(-2px); }
 
     footer { padding: 50px; text-align: center; color: #777; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.88rem; }
@@ -378,7 +378,7 @@ section {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(255, 255, 255, 0.6);
       z-index: -1;
     }
 
@@ -563,21 +563,21 @@ const committees = {
   ecosoc: {
     name: 'ECOSOC', tag: 'General Assembly',
     subtitle: "Sensory Pollution: National Infrastructure to Prevent Sensory Light and Noise Pollution",
-    heroBg: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.65)), url('images/ecosoc cover.jpg') center/cover no-repeat",
+    heroBg: "linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('images/ecosoc cover.jpg') center/cover no-repeat",
     type: 'General Assembly', topic: 'Sensory Pollution', skill: 'Misha Shnaider', guideStatus: 'Available', guideLink: 'RavenMUN ECOSOC Background Guide.pdf',
     overview: 'The ECOSOC committee on sensory pollution aims to emphasize the impacts of excess light and noise, especially in the environment or on human health. Since the Industrial Revolution, infrastructure in cities has been continuously expanding, which simultaneously increases the amount of artificial light and noise in the atmosphere. In this committee, delegates will evaluate the severity of sensory pollution and kickstart major global efforts to combat the issue. Delegates are expected to develop strategies which encompass both the needs of society, as well as the needs of individuals and the environment.',
   },
   disec: {
     name: 'DISEC', tag: 'General Assembly',
     subtitle: 'Private Military Companies: The Privatization of War and the Military-Industrial Complex',
-    heroBg: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.65)), url('images/PMC.jpg') center/cover no-repeat",
+    heroBg: "linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('images/PMC.jpg') center/cover no-repeat",
     type: 'Specialized Committee', topic: 'Private Military Companies', skill: 'Arman Kasnavi', guideStatus: 'Available', guideLink: 'RavenMUN DISEC Background Guide.pdf',
     overview: '<p>The Disarmament and International Security Committee (DISEC) is the First Committee of the UN General Assembly and deals with disarmament, global challenges, and threats to peace. At Raven MUN, DISEC will focus on one of the most controversial issues in modern warfare: the proliferation of Private Military Companies (PMCs).</p><p>Delegates will debate international regulations, accountability frameworks, and the implications of outsourcing military force to private actors operating outside traditional chains of command.</p>',
   },
   'red-scare': {
     name: 'Lights, Camera, Accusation', tag: 'Specialized-Crisis Committee',
     subtitle: 'The Red Scare in Hollywood',
-    heroBg: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.65)), url('images/red scare cover.webp') center/cover no-repeat",
+    heroBg: "linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('images/red scare cover.webp') center/cover no-repeat",
     type: 'Specialized Committee', topic: 'The Red Scare in Hollywood', skill: 'Eila Ganel, Kat Jensen', guideStatus: 'Available', guideLink: 'Background Guide- Red Scare.pdf',
     overview: '<p>In the late 1940s and 1950s, Hollywood became a battleground for America\'s Cold War fears. The House Un-American Activities Committee (HUAC) launched investigations into alleged Communist influence in the film industry, leading to blacklists, ruined careers, and a culture of fear and suspicion.</p><p>Delegates will inhabit the roles of Hollywood figures — actors, directors, writers, and studio executives — navigating the personal and political pressures of the Red Scare era.</p>',
   }
