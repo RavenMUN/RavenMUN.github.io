@@ -534,7 +534,7 @@ section {
     <img src="images/20250426_103348.jpg" alt="Raven MUN Cover" />
 
     <div class="register-overlay">
-      <div class="section-title">Register for RavenMUN</div>
+      <div class="section-title">Register for RavenMUN II</div>
       <p class="section-sub">
         Regular registration is due March 21st, and late registration is due April 9th.
         Sign up by filling out the form below.
@@ -604,7 +604,7 @@ section {
     <p id="committee-subtitle"></p>
   </div>
   <div class="committee-content">
-    <div class="back-btn" onclick="showHome('committees')">Back to Committees</div>
+  <div class="back-btn" onclick="showHome()">Back to Home</div>
     <div class="info-grid">
       <div class="info-box"><div class="label">Type</div><div class="value" id="info-type"></div></div>
       <div class="info-box"><div class="label">Topic</div><div class="value" id="info-topic"></div></div>
@@ -644,14 +644,18 @@ const committees = {
 };
 
 function showHome(sectionId) {
-  document.getElementById('page-home').classList.add('active');
   document.getElementById('page-committee').classList.remove('active');
+  document.getElementById('page-home').classList.add('active');
 
-  if (!sectionId) {
+  if (sectionId) {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  } else {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    history.replaceState(null, null, ' ');
-    return;
   }
+}
 
   const el = document.getElementById(sectionId);
 
