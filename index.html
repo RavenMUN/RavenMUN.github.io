@@ -229,12 +229,63 @@
   <div class="brand" onclick="showHome()">CCA RAVEN MUN II</div>
   <div class="nav-links">
     <a onclick="showHome('about')">About</a>
-    <a onclick="showHome('committees')">Committees</a>
+    <div class="dropdown">
+  <a class="dropbtn">Committees ▾</a>
+  <div class="dropdown-content">
+    <a onclick="showCommittee('ecosoc')">ECOSOC</a>
+    <a onclick="showCommittee('disec')">DISEC</a>
+    <a onclick="showCommittee('red-scare')">Lights, Camera, Accusation</a>
+  </div>
+</div>
     <a onclick="showHome('schedule')">Schedule</a>
     <a onclick="showHome('position-papers')">Position Papers</a>
     <a onclick="showHome('officers')">Officers</a>
     <a onclick="showHome('register')" class="nav-cta">Register</a>
   </div>
+  /* DROPDOWN */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  color: white;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  min-width: 200px;
+  display: none;
+  flex-direction: column;
+  padding: 8px 0;
+  z-index: 20;
+}
+
+.dropdown-content a {
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* SHOW ON HOVER */
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
 </nav>
 
 <!-- ==================== HOME PAGE ==================== -->
