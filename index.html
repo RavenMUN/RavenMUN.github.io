@@ -647,6 +647,9 @@ function showHome(sectionId) {
   document.getElementById('page-committee').classList.remove('active');
   document.getElementById('page-home').classList.add('active');
 
+  // 🔥 Clear the hash so refresh doesn't reopen committee
+  history.replaceState(null, null, ' ');
+
   if (sectionId) {
     const el = document.getElementById(sectionId);
     if (el) {
