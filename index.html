@@ -16,6 +16,9 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
     body { background: #000; color: white; overflow-x: hidden; }
+    html {
+  scroll-behavior: smooth;
+}
 
     /* BACKGROUND */
     #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2; }
@@ -91,7 +94,13 @@
     .btn-ghost:hover { border-color: white; background: rgba(255,255,255,0.05); transform: translateY(-2px); }
 
     /* SECTIONS */
-    section { padding: 140px 10%; opacity: 0; transform: translateY(60px); transition: 1s ease; }
+    section {
+  padding: 140px 10%;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 1s ease;
+  scroll-margin-top: 120px;
+} }
     section.show { opacity: 1; transform: translateY(0); }
     .section-title { font-size: 2.3rem; margin-bottom: 10px; }
     .section-sub { color: var(--gray); max-width: 700px; line-height: 1.8; margin-bottom: 50px; }
@@ -488,13 +497,18 @@ const committees = {
 function showHome(sectionId) {
   document.getElementById('page-home').classList.add('active');
   document.getElementById('page-committee').classList.remove('active');
-  window.scrollTo({ top: 0 });
-  window.location.hash = sectionId || '';
-  if (sectionId) {
-    setTimeout(() => {
-      const el = document.getElementById(sectionId);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 60);
+
+  if (!sectionId) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.replaceState(null, null, ' ');
+    return;
+  }
+
+  const el = document.getElementById(sectionId);
+
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, null, '#' + sectionId);
   }
 }
 
