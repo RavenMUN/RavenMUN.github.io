@@ -657,6 +657,16 @@ function showHome(sectionId) {
   }
 }
 
+  const el = document.getElementById(sectionId);
+
+  if (el) {
+    const isCommitteeJump = sectionId === 'committees';
+el.scrollIntoView({
+  behavior: isCommitteeJump ? 'auto' : 'smooth',
+  block: 'start'
+});
+  }
+}
 
 function showCommittee(id) {
   const c = committees[id];
