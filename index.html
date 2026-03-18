@@ -511,28 +511,28 @@ section {
 <section id="register" class="register-section register-hero">
 
   <div class="register-image">
+    
     <img src="images/20250426_103348.jpg" alt="Raven MUN Cover" />
-  </div>
 
-  <div class="register-content">
-    <div class="section-title">Register for Raven MUN</div>
-    <p class="section-sub">
-      Regular registration is due March 21st, and late registration is due April 9th.
-      Sign up by filling out the form below.
-    </p>
+    <div class="register-overlay">
+      <div class="section-title">Register for Raven MUN</div>
+      <p class="section-sub">
+        Regular registration is due March 21st, and late registration is due April 9th.
+        Sign up by filling out the form below.
+      </p>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_6wlb0IZNbyTP842hf8L43fL2UsjA-hgroM4j95ovWCrhJw/viewform"
-       target="_blank"
-       class="btn-red"
-       style="font-size:1.05rem;padding:16px 48px;">
-       Register Now →
-    </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_6wlb0IZNbyTP842hf8L43fL2UsjA-hgroM4j95ovWCrhJw/viewform"
+         target="_blank"
+         class="btn-red"
+         style="font-size:1.05rem;padding:16px 48px;">
+         Register Now →
+      </a>
+    </div>
+
   </div>
 
 </section>
-
 <style>
-
 .register-hero {
   padding: 0;
   text-align: center;
@@ -541,7 +541,7 @@ section {
 .register-image {
   position: relative;
   width: 100%;
-  height: 420px; /* adjust if needed */
+  height: 500px; /* adjust if needed */
   overflow: hidden;
 }
 
@@ -553,7 +553,7 @@ section {
   display: block;
 }
 
-/* Dark overlay like homepage */
+/* Dark overlay */
 .register-image::after {
   content: "";
   position: absolute;
@@ -561,9 +561,17 @@ section {
   background: rgba(0,0,0,0.65);
 }
 
-/* Text placed BELOW image */
-.register-content {
-  padding: 80px 10% 120px;
+/* Text overlay */
+.register-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  z-index: 2;
+  color: white;
 }
 </style>
   <!-- OFFICERS -->
