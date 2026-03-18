@@ -510,8 +510,6 @@ function showCommittee(id) {
   document.getElementById('info-skill').textContent = c.skill;
   document.getElementById('info-guide-status').textContent = c.guideStatus;
   document.getElementById('committee-overview').innerHTML = c.overview;
-  document.getElementById('committee-background').innerHTML = c.background;
-  document.getElementById('committee-questions').innerHTML = c.questions;
   const guideLink = document.getElementById('bg-guide-link');
   guideLink.href = c.guideLink;
   if (c.guideLink === '#') {
