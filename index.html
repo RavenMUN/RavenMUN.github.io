@@ -205,11 +205,36 @@ section {
     .schedule-note { color: var(--gray); font-size: 0.85rem; font-style: italic; margin-top: 16px; }
 
     /* ===== OFFICERS ===== */
-    .officers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 24px; }
-    .profile { text-align: center; }
-    .profile img { width: 110px; height: 110px; border-radius: 50%; margin-bottom: 12px; border: 3px solid var(--red); object-fit: cover; }
-    .profile h4 { font-size: 0.92rem; margin-bottom: 4px; }
-    .profile span { color: var(--red); font-size: 0.78rem; font-weight: 600; }
+.officers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;}
+
+.profile {
+  background: linear-gradient(145deg, #0b0b0b, #111);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 22px 26px;
+  text-align: left;
+  transition: 0.25s ease;}
+
+.profile:hover {
+  border-color: rgba(177,18,38,0.4);
+  transform: translateY(-4px);}
+
+.profile img {
+  display: none; /* hide circles */}
+
+.profile h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: white;}
+
+.profile span {
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-style: italic;}
 
     /* ===== POSITION PAPERS ===== */
     .paper-box {
@@ -471,7 +496,7 @@ section {
         <li>Previous UN actions</li>
         <li>Your country's general stance on the topic</li>
         <li>Proposed solutions and policy recommendations</li>
-      <p>*If you are in a spec-crisis committee, include global actions & character position rather than UN actions and country position.</p>
+    <p>*If you are in a spec-crisis committee, include global actions & character position rather than UN actions and country position.</p>
       </ul>
       <h3>Submission</h3>
       <p>Submit your position paper using the form below. Make sure to include your school name, committee, and country assignment.</p>
@@ -493,17 +518,17 @@ section {
     <div class="section-title">Officer Team</div>
     <p class="section-sub">Meet the team behind RavenMUN.</p>
     <div class="officers-grid">
-      <div class="profile"><img src="officer1.jpg" onerror="this.src='https://ui-avatars.com/api/?name=BL&background=b11226&color=fff&size=110'"><h4>Brynn Lee</h4><span>President</span></div>
-      <div class="profile"><img src="officer2.jpg" onerror="this.src='https://ui-avatars.com/api/?name=KJ&background=b11226&color=fff&size=110'"><h4>Kat Jensen</h4><span>Vice President</span></div>
-      <div class="profile"><img src="officer3.jpg" onerror="this.src='https://ui-avatars.com/api/?name=MS&background=b11226&color=fff&size=110'"><h4>Misha Shnaider</h4><span>Treasurer</span></div>
-      <div class="profile"><img src="officer4.jpg" onerror="this.src='https://ui-avatars.com/api/?name=EG&background=b11226&color=fff&size=110'"><h4>Eila Ganel</h4><span>Secretary</span></div>
-      <div class="profile"><img src="officer5.jpg" onerror="this.src='https://ui-avatars.com/api/?name=IC&background=b11226&color=fff&size=110'"><h4>Izzy Chen</h4><span>Publicity Officer</span></div>
-      <div class="profile"><img src="officer6.jpg" onerror="this.src='https://ui-avatars.com/api/?name=SM&background=b11226&color=fff&size=110'"><h4>Smaran Mukkavilli</h4><span>Dir. of Technology</span></div>
-      <div class="profile"><img src="officer7.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AK&background=b11226&color=fff&size=110'"><h4>Arman Kasnavi</h4><span>Dir. of Enrichment</span></div>
-      <div class="profile"><img src="officer8.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AC&background=b11226&color=fff&size=110'"><h4>Awa-Leah Caba</h4><span>Dir. of Enrichment</span></div>
-      <div class="profile"><img src="officer9.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AH&background=b11226&color=fff&size=110'"><h4>Asher Harron</h4><span>Dir. of Membership</span></div>
-      <div class="profile"><img src="officer10.jpg" onerror="this.src='https://ui-avatars.com/api/?name=LH&background=b11226&color=fff&size=110'"><h4>Lucia Huang</h4><span>Dir. of Outreach</span></div>
-      <div class="profile"><img src="officer11.jpg" onerror="this.src='https://ui-avatars.com/api/?name=AP&background=b11226&color=fff&size=110'"><h4>Angelyne Pham</h4><span>Dir. of Outreach</span></div>
+      <div class="profile"><h4>Brynn Lee</h4><span>President</span></div>
+      <div class="profile"><h4>Kat Jensen</h4><span>Vice President</span></div>
+      <div class="profile"><h4>Misha Shnaider</h4><span>Treasurer</span></div>
+      <div class="profile"><h4>Eila Ganel</h4><span>Secretary</span></div>
+      <div class="profile"><h4>Izzy Chen</h4><span>Publicity Officer</span></div>
+      <div class="profile"><h4>Smaran Mukkavilli</h4><span>Dir. of Technology</span></div>
+      <div class="profile"><h4>Arman Kasnavi</h4><span>Dir. of Enrichment</span></div>
+      <div class="profile"><h4>Awa-Leah Caba</h4><span>Dir. of Enrichment</span></div>
+      <div class="profile"><h4>Asher Harron</h4><span>Dir. of Membership</span></div>
+      <div class="profile"><h4>Lucia Huang</h4><span>Dir. of Outreach</span></div>
+      <div class="profile"><h4>Angelyne Pham</h4><span>Dir. of Outreach</span></div>
     </div>
   </section>
 
