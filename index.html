@@ -151,28 +151,6 @@ section {
     .section-title { font-size: 2.3rem; margin-bottom: 10px; }
     .section-sub { color: var(--gray); max-width: 700px; line-height: 1.8; margin-bottom: 50px; }
 
-    /* ===== LETTER FROM PRESIDENT ===== */
-    .letter-box {
-      max-width: 800px;
-      background: linear-gradient(145deg, #0b0b0b, #111);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 18px; padding: 50px 56px;
-      position: relative; overflow: hidden;
-    }
-    .letter-box::before {
-      content: '"';
-      position: absolute; top: -20px; left: 30px;
-      font-size: 12rem; color: var(--red); opacity: 0.06;
-      font-family: Georgia, serif; line-height: 1;
-    }
-    .letter-box p {
-      color: var(--gray); line-height: 1.9; font-size: 0.97rem;
-      margin-bottom: 16px; position: relative; z-index: 1;
-    }
-    .letter-sig { margin-top: 32px; }
-    .letter-sig strong { display: block; font-size: 1rem; color: white; margin-bottom: 2px; }
-    .letter-sig span { color: var(--red); font-size: 0.85rem; font-weight: 600; }
-
     /* ===== COMMITTEES ===== */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .committee-card {
@@ -298,9 +276,6 @@ section {
 <nav>
   <div class="brand" onclick="showHome()">CCA RAVENMUN II</div>
 
-  <div class="nav-links">
-    <a onclick="showHome('about')">About</a>
-
     <div class="dropdown">
       <a class="dropbtn" onclick="showHome('committees')">
         Committees <span class="arrow">▾</span>
@@ -394,19 +369,6 @@ section {
     }
   </style>
 </head>
-
-  <!-- ABOUT / LETTER FROM PRESIDENT -->
-  <section id="about">
-    <div class="section-title">A Message from the Secretary-General</div>
-    <br>
-    <div class="letter-box">
-      <p>&lt;letter&gt;</p>
-      <div class="letter-sig">
-        <strong>Brynn Lee</strong>
-        <span>Secretary-General, CCA Raven Model United Nations</span>
-      </div>
-    </div>
-  </section>
 
   <!-- COMMITTEES -->
   <section id="committees">
